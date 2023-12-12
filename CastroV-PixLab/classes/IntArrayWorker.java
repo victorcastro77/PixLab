@@ -30,15 +30,15 @@ public class IntArrayWorker
         return total;
     }
 
-    public int getCount(int count) {
-        count = 0;
-        int value = 0;
+    public int getCount(int value) {
+        int count = 0;
+        value = 0;
         for (int row = 0; row < matrix.length; row++) {
-            if (matrix[row].equals(value)) {
-                count++;
-            } 
-            for (int col = 0; col < matrix[0].length; col++) {
-                if (matrix[col].equals(value)) {
+            for (int col = 0; col < matrix[0].length-1; col++) {
+                if (row == value) {
+                    count++;
+                }
+                if (col == value) {
                     count++;
                 }
             }
@@ -46,18 +46,19 @@ public class IntArrayWorker
         return count;
     }
 
-    public int getLargest(int value) {
-        int largestValue = 0;
+    public int getLargest() {
+        int largestValue= 0;
         for (int row = 0; row < matrix.length; row++) {
             for (int col = 0; col < matrix[0].length; col++) {
-                if (matrix[row][col] > largestValue) {
-                    largestValue = matrix[row][col];
-
+                if (row > largestValue) {
+                    largestValue = row;
+                }
+                if (col > largestValue) {
+                    largestValue = col;
                 }
             }
         }
-        value = largestValue;
-        return value;
+        return largestValue;
     }
 
     /**
