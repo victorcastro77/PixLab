@@ -49,16 +49,24 @@ public class IntArrayWorker
     public int getLargest() {
         int largestValue= 0;
         for (int row = 0; row < matrix.length; row++) {
-            for (int col = 0; col < matrix[0].length; col++) {
-                if (row > largestValue) {
-                    largestValue = row;
-                }
-                if (col > largestValue) {
-                    largestValue = col;
+            for (int col = 0; col < matrix[0].length-1; col++) {
+                if (matrix[row][col] > largestValue) {
+                    largestValue = matrix[row][col];
                 }
             }
+
         }
         return largestValue;
+    }
+
+    public int getColTotal(int colnum) {
+        int total = 0;
+        for (int row = 0; row < matrix.length; row++) {
+            for (int col = 0; col < matrix[colnum].length-1; col++) {
+                total += col;
+            }
+        }
+        return total;
     }
 
     /**
