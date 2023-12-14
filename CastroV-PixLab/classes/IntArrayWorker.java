@@ -59,12 +59,11 @@ public class IntArrayWorker
         return largestValue;
     }
 
-    public int getColTotal(int colnum) {
+    public int getColTotal(int colNum) {
         int total = 0;
-        for (int row = 0; row < matrix.length; row++) {
-            for (int col = 0; col < matrix[colnum].length-1; col++) {
-                total += col;
-            }
+
+        for (int i = 0; i < matrix[0].length; i++) {
+            total += matrix[i][colNum];
         }
         return total;
     }
